@@ -103,6 +103,10 @@ PRODUCT_PACKAGES += \
     nx_bt.rc
 endif
 
+# Device Settings
+PRODUCT_PACKAGES += \
+    DeviceSettingsSR
+
 # Joycons
 PRODUCT_PACKAGES += \
     joycond \
