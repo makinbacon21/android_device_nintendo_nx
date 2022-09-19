@@ -53,6 +53,7 @@ KERNEL_TOOLCHAIN_PREFIX        := aarch64-linux-gnu-
 TARGET_KERNEL_SOURCE           := kernel/nvidia/kernel-$(TARGET_TEGRA_KERNEL)-nx
 TARGET_KERNEL_CONFIG           := tegra_android_defconfig
 TARGET_KERNEL_ADDITIONAL_FLAGS := "NV_BUILD_KERNEL_OPTIONS=$(TARGET_TEGRA_KERNEL)"
+include device/nintendo/nx/modules.mk
 
 # Kerbel Image Parameters
 BOARD_KERNEL_IMAGE_NAME        := Image.gz
