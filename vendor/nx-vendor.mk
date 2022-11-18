@@ -12,9 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/nvidia/t210-common/vendor/t210.mk)
+$(call inherit-product, device/nvidia/t210-common/vendor/t210-by-flags.mk)
 $(call inherit-product, device/nvidia/tegra-common/vendor/common-by-flags.mk)
-$(call inherit-product, device/nintendo/nx/vendor/bcm_firmware/bcm.mk)
+$(call inherit-product, device/nintendo/nx/vendor/rel-shield-r/bcm_firmware/bcm.mk)
+
+ifneq ("$(wildcard device/nvidia/foster/vendor/$(TARGET_TEGRA_DEFAULT_BRANCH)/bcm_firmware/bcm.mk)","")
+$(call inherit-product, device/nvidia/foster/vendor/$(TARGET_TEGRA_DEFAULT_BRANCH)/bcm_firmware/bcm.mk)
+endif
 
 PRODUCT_PACKAGES += public.libraries
 

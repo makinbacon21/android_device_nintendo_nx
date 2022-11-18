@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(TARGET_TEGRA_DEFAULT_BRANCH),rel-shield-r)
 LOCAL_PATH := $(call my-dir)
-FOSTER_BCM_PATH := ../../../../../vendor/nvidia/foster/bcm_firmware
-NX_BCM_PATH := ../../../../../vendor/nintendo/bcm_firmware
+FOSTER_BCM_PATH := ../../../../../../vendor/nvidia/foster/rel-shield-r/bcm_firmware
+NX_BCM_PATH := ../../../../../../vendor/nintendo/bcm_firmware
 
 # Bluetooth Patchfile
 include $(CLEAR_VARS)
@@ -57,3 +58,5 @@ $(_brcmfmac4356A3_archive):
 LOCAL_MODULE_TAGS          := optional
 LOCAL_MODULE_OWNER         := nintendo
 include $(BUILD_SYSTEM)/base_rules.mk
+
+endif

@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_BCM_PATH := device/nvidia/tegra-common/vendor/bcm_firmware
+LOCAL_PATH := $(call my-dir)
 
-PRODUCT_PACKAGES += \
-    BCM4356A3 \
-    brcmfmac4356A3-pcie \
-	brcmfmac4356-pcie
+include $(call all-makefiles-under,$(LOCAL_PATH))
