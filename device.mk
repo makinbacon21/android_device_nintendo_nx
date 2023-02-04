@@ -83,12 +83,16 @@ ifeq ($(PRODUCT_IS_ATV),true)
 endif
 
 # Audio
-ifneq ($(filter rel-shield-r, $(TARGET_TEGRA_AUDIO)),)
+ifneq ($(TARGET_TEGRA_AUDIO),)
+ifeq ($(TARGET_TEGRA_AUDIO),tinyhal)
+# TODO: add nx tinyhal config
+else ifneq ($(filter rel-shield-r, $(TARGET_TEGRA_AUDIO)),)
 PRODUCT_PACKAGES += \
     audio_effects.xml \
     audio_policy_configuration.xml \
     nvaudio_conf.xml \
     nvaudio_fx.xml
+endif
 endif
 
 # Bluetooth
