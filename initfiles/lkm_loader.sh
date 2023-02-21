@@ -133,8 +133,8 @@ do_insmod /vendor/lib/modules/pwm_fan.ko
 do_insmod /vendor/lib/modules/therm_fan_est.ko
 
 # Joycons (make sure to load after pwm_fan to avoid excessive fanspin!)
-do_insmod /vendor/lib/modules/crc8.ko
-do_insmod /vendor/lib/modules/joycon-serdev.ko
+#do_insmod /vendor/lib/modules/crc8.ko
+#do_insmod /vendor/lib/modules/joycon-serdev.ko
 
 # TV tuner drivers
 do_insmod /vendor/lib/modules/videobuf-core.ko
