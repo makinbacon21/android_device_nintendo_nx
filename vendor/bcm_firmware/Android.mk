@@ -44,10 +44,14 @@ $(_brcmfmac4356A3_archive):
 	@mkdir -p $(TARGET_OUT_VENDOR)/firmware
 #	@cp $(_brcmfmac4356A3_input) $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.bin
 	@cp $(_brcmfmac4356A3_nv_src)/brcmfmac4356-pcie.clm_blob $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.clm_blob
-	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,odin.txt
-	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,modin.txt
-	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,vali.txt
-	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,frig.txt
+#	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,odin.txt
+#	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,modin.txt
+#	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,vali.txt
+#	@cp $(_brcmfmac4356A3_src)/brcmfmac4356A3-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,frig.txt
+	@cp $(_brcmfmac4356A3_nv_src)/brcmfmac4356-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,odin.txt
+	@cp $(_brcmfmac4356A3_nv_src)/brcmfmac4356-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,modin.txt
+	@cp $(_brcmfmac4356A3_nv_src)/brcmfmac4356-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,vali.txt
+	@cp $(_brcmfmac4356A3_nv_src)/brcmfmac4356-pcie.txt $(TARGET_OUT_VENDOR)/firmware/brcmfmac4356-pcie.nvidia,frig.txt
 	@touch $(_brcmfmac4356A3_archive)
 
 LOCAL_MODULE_TAGS          := optional
