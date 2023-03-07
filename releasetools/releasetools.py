@@ -69,25 +69,25 @@ def AddBootloaderFlash(info, input_zip):
   info.script.AppendExtra('      run_program("/system/bin/mkdir", "-p", "' + NX_FILES + '");')
   info.script.AppendExtra('      run_program("/system/bin/mount", "/dev/block/by-name/hos_data", "' + NX_FILES + '");')
 
-  """ clean old bootloader """
+  """ migrate to new bootloader """
   info.script.AppendExtra('      ifelse(')
   info.script.AppendExtra('        read_file("' + NX_FILES + '/switchroot/android/bl31.bin"),')
   info.script.AppendExtra('        (')
   info.script.AppendExtra('          ui_print("Your bootloader is already compatible with L4T-Loader");')
   info.script.AppendExtra('        ),')
   info.script.AppendExtra('        (')
-  info.script.AppendExtra('          ui_print("Removing coreboot, as it is unused by L4T-Loader");')
-  info.script.AppendExtra('          run_program("/system/bin/rm", "-f", "' + NX_FILES + '/switchroot/android/coreboot.rom");')
+  info.script.AppendExtra('          ui_print("Performing one-time L4T-Loader migration");')
+  info.script.AppendExtra('          package_extract_file("firmware-update/android.ini", "' + NX_FILES + '/bootloader/ini/android.ini");')
+  info.script.AppendExtra('          package_extract_file("install/bin/nx-migration.sh", "/tmp/install/bin/nx-migration.sh");')
+  info.script.AppendExtra('          run_program("/system/bin/sh", "-c", "/tmp/install/bin/nx-migration.sh");')
   info.script.AppendExtra('        )')
   info.script.AppendExtra('      );')
 
   """ flash uploaded bl files """
   info.script.AppendExtra('      package_extract_file("firmware-update/bl31.bin", "' + NX_FILES + '/switchroot/android/bl31.bin");')
   info.script.AppendExtra('      package_extract_file("firmware-update/bl33.bin", "' + NX_FILES + '/switchroot/android/bl33.bin");')
-  info.script.AppendExtra('      package_extract_file("firmware-update/boot.scr", "' + NX_FILES + '/switchroot/android/boot.scr");')
   info.script.AppendExtra('      package_extract_file("firmware-update/bootlogo_android.bmp", "' + NX_FILES + '/switchroot/android/bootlogo_android.bmp");')
   info.script.AppendExtra('      package_extract_file("firmware-update/icon_android_hue.bmp", "' + NX_FILES + '/switchroot/android/icon_android_hue.bmp");')
-  info.script.AppendExtra('      package_extract_file("firmware-update/00-android.ini", "' + NX_FILES + '/bootloader/ini/00-android.ini");')
   info.script.AppendExtra('      run_program("/system/bin/umount", "' + NX_FILES + '");')
   info.script.AppendExtra('    )')
   info.script.AppendExtra('  );')
