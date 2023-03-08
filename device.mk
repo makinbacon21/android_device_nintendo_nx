@@ -67,8 +67,7 @@ PRODUCT_PACKAGES += \
 	init.frig.rc \
     init.loki_foster_e_common.rc \
     init.nx.rc \
-    init.recovery.nx.rc \
-    power.nx.rc
+    init.recovery.nx.rc
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -103,6 +102,15 @@ ifeq ($(TARGET_TEGRA_BT),btlinux)
 PRODUCT_PACKAGES += \
     nx_bt.rc
 endif
+
+# CPL
+PRODUCT_PACKAGES += \
+	nx_power \
+	power.nx.rc \
+	power.nx.default.rc \
+	power.nx.t210.oc.rc \
+	power.nx.t210b01.b.rc \
+	power.nx.t210b01.b.vali.rc
 
 # Device Settings
 PRODUCT_PACKAGES += \

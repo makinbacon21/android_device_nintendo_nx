@@ -29,6 +29,7 @@ on fs
     swapon_all /vendor/etc/fstab.nx
 
 on post-fs
+    start vendor.nx_power
     start vendor.sensors_calib
 
 on boot
@@ -49,6 +50,13 @@ on property:init.svc.bootanim=running
 
 on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_cfs_boost 0
+
+service vendor.nx_power /vendor/bin/nx_power.sh ${ro.boot.dvfsb} ${ro.boot.oc} ${ro.hardware.sku}
+    class main
+    user root
+    group root
+    disabled
+    oneshot
 
 service vendor.sensors_calib /vendor/bin/sensors_calib.sh /mnt/vendor/factory/switchroot/android /data/STSensorHAL/factory_calibration
     class main
