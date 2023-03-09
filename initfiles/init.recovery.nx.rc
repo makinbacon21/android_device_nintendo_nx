@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import init.recovery.usb.rc
+
 on early-init
     # TWRP doesn't have bootanim, so reset fb on early-init
     write /sys/class/graphics/fb0/blank 1
