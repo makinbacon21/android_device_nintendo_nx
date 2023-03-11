@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+TARGET_SHIELDTECH_INPUTFLINGER := switchroot
+
+include device/nvidia/shield-common/shield.mk
+
 TARGET_TEGRA_VARIANT    ?= common
 
 TARGET_TEGRA_AUDIO    ?= nvaudio
