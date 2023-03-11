@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_BCM_PATH := device/nvidia/tegra-common/vendor/bcm_firmware
-
 PRODUCT_PACKAGES += \
     BCM4356A3 \
     brcmfmac4356A3-pcie
