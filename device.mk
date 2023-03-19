@@ -109,8 +109,7 @@ endif
 
 # CPL
 PRODUCT_PACKAGES += \
-	nx_power \
-	power.nx.rc \
+	nx_power.rc \
 	power.nx.default.rc \
 	power.nx.t210.oc.rc \
 	power.nx.t210b01.b.rc \

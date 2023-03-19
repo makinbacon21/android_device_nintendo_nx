@@ -16,42 +16,34 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# PLACEHOLDER FILE
-include $(CLEAR_VARS)
-LOCAL_MODULE       := power.nx.rc
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(PRODUCT_OUT)/data/vendor/nvcpl
-LOCAL_SRC_FILES    := power.nx.rc
-include $(BUILD_PREBUILT)
-
 # Default (close to Nintendo stock) clocks
 include $(CLEAR_VARS)
 LOCAL_MODULE       := power.nx.default.rc
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(PRODUCT_OUT)/data/vendor/nvcpl
-LOCAL_SRC_FILES    := power.nx.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/nvcpl
+LOCAL_SRC_FILES    := power.nx.default.rc
 include $(BUILD_PREBUILT)
 
 # T210 Super OC (somewhat unstable)
 include $(CLEAR_VARS)
 LOCAL_MODULE       := power.nx.t210.oc.rc
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(PRODUCT_OUT)/data/vendor/nvcpl
-LOCAL_SRC_FILES    := power.nx.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/nvcpl
+LOCAL_SRC_FILES    := power.nx.t210.oc.rc
 include $(BUILD_PREBUILT)
 
 # T210B01 DVFSB profile
 include $(CLEAR_VARS)
 LOCAL_MODULE       := power.nx.t210b01.b.rc
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(PRODUCT_OUT)/data/vendor/nvcpl
-LOCAL_SRC_FILES    := power.nx.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/nvcpl
+LOCAL_SRC_FILES    := power.nx.t210b01.b.rc
 include $(BUILD_PREBUILT)
 
 # T210B01 DVFSB profile for Vali
 include $(CLEAR_VARS)
 LOCAL_MODULE       := power.nx.t210b01.b.vali.rc
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH  := $(PRODUCT_OUT)/data/vendor/nvcpl
-LOCAL_SRC_FILES    := power.nx.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/nvcpl
+LOCAL_SRC_FILES    := power.nx.t210b01.b.vali.rc
 include $(BUILD_PREBUILT)

@@ -1,0 +1,38 @@
+# Copyright (C) 2023 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+on property:vold.post_fs_data_done=1
+    mkdir /data/vendor/nvcpl 0755 system system
+    chown system system /data/vendor/nvcpl/power.nx.rc
+    rm /data/vendor/nvcpl/power.nx.rc
+
+# odin oc
+on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=odin && property:ro.boot.oc=1
+    symlink /vendor/etc/nvcpl/power.nx.t210.oc.rc /data/vendor/nvcpl/power.nx.rc
+
+# modin dvfsb
+on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=modin && property:ro.boot.dvfsb=1
+    symlink /vendor/etc/nvcpl/power.nx.t210b01.b.rc /data/vendor/nvcpl/power.nx.rc
+
+# frig dvfsb
+on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=frig && property:ro.boot.dvfsb=1
+    symlink /vendor/etc/nvcpl/power.nx.t210b01.b.rc /data/vendor/nvcpl/power.nx.rc
+
+# vali dvfsb
+on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=vali && property:ro.boot.dvfsb=1
+    symlink /vendor/etc/nvcpl/power.nx.t210b01.b.vali.rc /data/vendor/nvcpl/power.nx.rc
+
+# default
+on property:vold.post_fs_data_done=1
+    symlink /vendor/etc/nvcpl/power.nx.default.rc /data/vendor/nvcpl/power.nx.rc
